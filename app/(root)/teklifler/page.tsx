@@ -1,5 +1,5 @@
 import React from 'react'
-// import AllCategories from '@/components/category/all-categories'
+import AllTeklifler from '@/components/teklifler/all-teklifler';
 import { Separator } from '@/components/ui/separator';
 import TitleH1 from '@/components/ui/h1';
 export const metadata = {
@@ -17,7 +17,7 @@ const TekliflerPage = async () => {
                 </TitleH1>
             </div>
             <Separator />
-            {/* <AllCategories /> */}
+            <AllTeklifler />
         </div>
     );
 }

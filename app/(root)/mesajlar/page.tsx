@@ -1,7 +1,7 @@
 import React from 'react'
-// import AllCategories from '@/components/category/all-categories'
 import { Separator } from '@/components/ui/separator';
 import TitleH1 from '@/components/ui/h1';
+import AllMessages from '@/components/mesajlar/all-messages';
 export const metadata = {
     title: 'Mesajlar',
     description: 'Mesajlar description',
@@ -17,7 +17,7 @@ const MesajlarPage = async () => {
                 </TitleH1>
             </div>
             <Separator />
-            {/* <AllCategories /> */}
+            <AllMessages />
         </div>
     );
 }
