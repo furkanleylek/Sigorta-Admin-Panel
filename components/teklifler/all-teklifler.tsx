@@ -18,28 +18,26 @@ const AllTeklifler = async () => {
     )
     console.log("categories:", categories)
     return (
-        <div>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead>İsim</TableHead>
-                        <TableHead>İsim</TableHead>
-                        <TableHead>İsim</TableHead>
-                        <TableHead>İsim</TableHead>
-                        <TableHead>İsim</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow>
-                        <TableCell>Sa</TableCell>
-                        <TableCell>Sa</TableCell>
-                        <TableCell>Sa</TableCell>
-                        <TableCell>Sa</TableCell>
-                        <TableCell>Sa</TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-        </div>
+        <Table className='border border-border'>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>İsim</TableHead>
+                    <TableHead>İsim</TableHead>
+                    <TableHead>İsim</TableHead>
+                    <TableHead>İsim</TableHead>
+                    <TableHead>İsim</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell>Sa</TableCell>
+                    <TableCell>Sa</TableCell>
+                    <TableCell>Sa</TableCell>
+                    <TableCell>Sa</TableCell>
+                    <TableCell>Sa</TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
     )
     // return (
     //     <Table>
