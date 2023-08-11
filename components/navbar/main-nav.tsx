@@ -23,6 +23,31 @@ export function MainNav({
             active: pathname === `/teklifler`,
         },
         {
+            href: `/trafik`,
+            label: 'Trafik',
+            active: pathname === `/trafik`,
+        },
+        {
+            href: `/kasko`,
+            label: 'Kasko',
+            active: pathname === `/kasko`,
+        },
+        {
+            href: `/konut`,
+            label: 'Konut',
+            active: pathname === `/konut`,
+        },
+        {
+            href: `/isyeri`,
+            label: 'İş Yeri',
+            active: pathname === `/isyeri`,
+        },
+        {
+            href: `/dask`,
+            label: 'Dask',
+            active: pathname === `/dask`,
+        },
+        {
             href: `/mesajlar`,
             label: 'Mesajlar',
             active: pathname === `/mesajlar`,

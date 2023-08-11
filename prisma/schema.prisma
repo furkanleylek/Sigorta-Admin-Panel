@@ -34,6 +34,23 @@ model Item {
   updatedAt  DateTime @updatedAt
 }
 
+model Trafik {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  kullaniciAdi    String
+  sahipturu       String
+  tcKimlik        String
+  plakaNo         String
+  kullanimTarzi   String
+  marka           String
+  modelYili       String
+  ASBISno         String
+  police          String
+  adres           String
+  telefonNumarasi String
+  eposta          String
+  mesaj           String
+}
+
 model User {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   name     String
