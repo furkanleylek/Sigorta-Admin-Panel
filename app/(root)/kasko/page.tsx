@@ -8,6 +8,7 @@ export const metadata = {
     title: 'Kasko',
     description: 'Trafik description',
 }
+export const dynamic = 'force-dynamic'
 
 const KaskoPage = async () => {
 
