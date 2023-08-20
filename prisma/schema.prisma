@@ -43,6 +43,6 @@ model Trafik {
   eposta          String?
   mesaj           String?
 
-  onaylama  Boolean? @default(false)
+  onaylama  Boolean  @default(false)
   createdAt DateTime @default(now())
 }

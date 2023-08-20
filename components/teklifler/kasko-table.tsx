@@ -7,13 +7,13 @@ import OnaylaTeklif from './onayla-teklif'
 interface KaskoTableProps {
     trafikData: {
         id: string
-        kullaniciAdi: string
+        kullaniciAdi: string | null
         dogumTarihi: string
         sahipturu: string
-        tcKimlik: string
-        sirketUnvani: string
-        vergiNo: string
-        pasaportNo: string
+        tcKimlik: string | null
+        sirketUnvani: string | null
+        vergiNo: string | null
+        pasaportNo: string | null
 
         plakaNo: string
         kullanimTarzi: string
@@ -22,14 +22,14 @@ interface KaskoTableProps {
         ASBISno: string
 
         police: string
-        sigortaSirketi: string
-        policeNumarasi: string
-        policeBitisTarihi: string
+        sigortaSirketi: string | null
+        policeNumarasi: string | null
+        policeBitisTarihi: string | null
 
-        adres: string
+        adres: string | null
         telefonNumarasi: string
-        eposta: string
-        mesaj: string
+        eposta: string | null
+        mesaj: string | null
 
         onaylama: boolean
     }[]

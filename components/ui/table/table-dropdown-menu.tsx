@@ -8,8 +8,8 @@ import { TableMenuContainerItem, TableMenuInsideItem, TableMenuSpan } from './ta
 
 
 interface Bilgi {
-    value: string
-    label: string
+    value: string | null
+    label: string | null
 }
 
 interface TableDropdownMenuProps {
