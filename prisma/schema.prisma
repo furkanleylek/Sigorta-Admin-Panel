@@ -10,49 +10,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Category {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String   @unique
-  items     Item[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Item {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  name       String   @unique
-  price      Float
-  color      String
-  size       String?
-  stock      Int?
-  imageUrl   String?
-  featured   Boolean  @default(false)
-  archived   Boolean  @default(false)
-  categoryId String   @db.ObjectId
-  category   Category @relation(fields: [categoryId], references: [id])
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-}
-
-model Trafik {
-  id              String @id @default(auto()) @map("_id") @db.ObjectId
-  kullaniciAdi    String
-  sahipturu       String
-  tcKimlik        String
-  plakaNo         String
-  kullanimTarzi   String
-  marka           String
-  modelYili       String
-  ASBISno         String
-  police          String
-  adres           String
-  telefonNumarasi String
-  eposta          String
-  mesaj           String
-}
-
 model User {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   name     String
   password String
+}
+
+model Trafik {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  sahipturu    String
+  kullaniciAdi String?
+  tcKimlik     String?
+  sirketUnvani String?
+  vergiNo      String?
+  pasaportNo   String?
+  dogumTarihi  String
+
+  plakaNo       String
+  kullanimTarzi String
+  marka         String
+  modelYili     String
+  ASBISno       String
+
+  police            String
+  sigortaSirketi    String?
+  policeNumarasi    String?
+  policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean? @default(false)
+  createdAt DateTime @default(now())
 }

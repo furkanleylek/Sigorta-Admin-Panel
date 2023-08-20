@@ -7,19 +7,31 @@ import Image from 'next/image'
 interface TrafikTableProps {
     trafikData: {
         id: string
-        kullaniciAdi: String
-        sahipturu: String
-        tcKimlik: String
-        plakaNo: String
-        kullanimTarzi: String
-        marka: String
-        modelYili: String
-        ASBISno: String
-        police: String
-        adres: String
-        telefonNumarasi: String
-        eposta: String
-        mesaj: String
+        kullaniciAdi: string
+        dogumTarihi: string
+        sahipturu: string
+        tcKimlik: string
+        sirketUnvani: string
+        vergiNo: string
+        pasaportNo: string
+
+        plakaNo: string
+        kullanimTarzi: string
+        marka: string
+        modelYili: string
+        ASBISno: string
+
+        police: string
+        sigortaSirketi: string
+        policeNumarasi: string
+        policeBitisTarihi: string
+
+        adres: string
+        telefonNumarasi: string
+        eposta: string
+        mesaj: string
+
+        onaylama: boolean
     }[]
 }
 

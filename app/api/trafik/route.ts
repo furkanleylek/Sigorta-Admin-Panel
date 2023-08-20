@@ -7,18 +7,27 @@ export async function POST(
     try {
         const origin = req.headers.get('origin')
         const body = await req.json()
-        console.log(body)
         const category = await prismadb.trafik.create({
             data: {
-                kullaniciAdi: body.kullaniciAdi,
                 sahipturu: body.sahipturu,
+                kullaniciAdi: body.kullaniciAdi,
                 tcKimlik: body.tcKimlik,
+                sirketUnvani: body.sirketUnvani,
+                vergiNo: body.vergiNo,
+                pasaportNo: body.pasaportNo,
+                dogumTarihi: body.dogumTarihi,
+
                 plakaNo: body.plakaNo,
                 kullanimTarzi: body.kullanimTarzi,
                 marka: body.marka,
                 modelYili: body.modelYili,
                 ASBISno: body.ASBISno,
+
                 police: body.police,
+                sigortaSirketi: body.sigortaSirketi,
+                policeNumarasi: body.policeNumarasi,
+                policeBitisTarihi: body.policeBitisTarihi,
+
                 adres: body.adres,
                 telefonNumarasi: body.telefonNumarasi,
                 eposta: body.eposta,
@@ -36,6 +45,25 @@ export async function POST(
     } catch (error) {
         console.log('[CATEGORİES_POST]', error)
         return new NextResponse('Interal Error', { status: 500 })
+    }
+}
+
+
+export async function PUT(
+    req: Request,
+    res: Response
+) {
+    const body = await req.json()
+
+    try {
+        const onay = await prismadb.trafik.update({
+            where: { id: body.teklifId },
+            data: { onaylama: body.onaylamaState ? false : true }
+        })
+        return new NextResponse('Success', { status: 200 })
+
+    } catch (error) {
+        console.log("ERROROROROR:", error)
     }
 }
 

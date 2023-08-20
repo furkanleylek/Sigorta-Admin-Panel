@@ -3,31 +3,25 @@ import AllTeklifler from '@/components/teklifler/all-teklifler';
 import { Separator } from '@/components/ui/separator';
 import TitleH1 from '@/components/ui/h1';
 import prismadb from '@/lib/prismadb'
-import { TrafikTable } from '@/components/teklifler/trafik-table';
+import { KaskoTable } from '@/components/teklifler/kasko-table';
 export const metadata = {
-    title: 'Trafik',
+    title: 'Kasko',
     description: 'Trafik description',
 }
 
-const TrafikPage = async () => {
+const KaskoPage = async () => {
 
-    const trafikData = await prismadb.trafik.findMany(
-        {
-            orderBy: {
-                createdAt: "desc"
-            }
-        }
-    )
+    const trafikData = await prismadb.trafik.findMany()
     return (
         <div className="flex space-y-8 mt-8 flex-col">
             <div className='flex items-center justify-between w-full'>
                 <TitleH1>
-                    Trafik
+                    Kasko
                 </TitleH1>
             </div>
             <Separator />
-            <TrafikTable trafikData={trafikData} />
+            <KaskoTable trafikData={trafikData} />
         </div>
     );
 }
-export default TrafikPage
+export default KaskoPage

@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation' // to route after s
 import { toast } from 'react-hot-toast'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/button'
-
+import { Input } from '../ui/input'
 const LoginForm = () => {
 
     const [name, setName] = useState('')
@@ -44,8 +44,7 @@ const LoginForm = () => {
                 <label htmlFor="name" className="sr-only">
                     Kullancı Adı
                 </label>
-                <input
-                    className=" border border-border rounded w-full py-2 px-3 text-gray-700 mb-3 text-[15px] font-semibold appearance-none leading-tight focus:ring-2 focus:outline-none focus:shadow-outline p-4 outline-none "
+                <Input
                     type="text"
                     value={name}
                     placeholder='Kullanıcı Adı'
@@ -54,8 +53,7 @@ const LoginForm = () => {
                 <label htmlFor="password" className="sr-only">
                     Şifre
                 </label>
-                <input
-                    className=" border border-border rounded w-full py-2 px-3 text-gray-700 mb-3 text-[15px] font-semibold appearance-none leading-tight focus:ring-2 focus:outline-none focus:shadow-outline p-4 outline-none "
+                <Input
                     type="password"
                     placeholder='Şifre'
                     value={password}
