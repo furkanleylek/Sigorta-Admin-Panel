@@ -11,7 +11,11 @@ export const metadata = {
 
 const KaskoPage = async () => {
 
-    const trafikData = await prismadb.trafik.findMany()
+    const trafikData = await prismadb.trafik.findMany({
+        orderBy: {
+            createdAt: 'desc'
+        }
+    })
     return (
         <div className="flex space-y-8 mt-8 flex-col">
             <div className='flex items-center justify-between w-full'>
