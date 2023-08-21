@@ -48,6 +48,11 @@ export function MainNav({
             active: pathname === `/dask`,
         },
         {
+            href: `/ferdikaza`,
+            label: 'Ferdi Kaza',
+            active: pathname === `/ferdikaza`,
+        },
+        {
             href: `/mesajlar`,
             label: 'Mesajlar',
             active: pathname === `/mesajlar`,

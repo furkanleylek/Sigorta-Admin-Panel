@@ -11,9 +11,10 @@ import { Button } from '../ui/button'
 
 interface DeleteTeklifProps {
     teklifId: string
+    category: string
 }
 
-const DeleteTeklif: React.FC<DeleteTeklifProps> = ({ teklifId }) => {
+const DeleteTeklif: React.FC<DeleteTeklifProps> = ({ category, teklifId }) => {
 
     const { loading, setLoading } = useDashboardContext()
     const [openDeleteModal, setOpenDeleteModal] = useState(false)
@@ -21,9 +22,11 @@ const DeleteTeklif: React.FC<DeleteTeklifProps> = ({ teklifId }) => {
     const { toast } = useToast()
     async function deleteProduct() {
         console.log("teklifId:", teklifId)
+        console.log("category:", category)
+
         try {
             setLoading(true);
-            const response = await fetch(`/api/trafik/${teklifId}`, {
+            const response = await fetch(`/api/${category}/${teklifId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

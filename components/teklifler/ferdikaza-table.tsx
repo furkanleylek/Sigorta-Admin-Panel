@@ -1,31 +1,28 @@
-'use client'
 import React from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import TableDropdownMenu from '../ui/table/table-dropdown-menu'
-import { TiTick } from 'react-icons/ti'
 import OnaylaTeklif from './onayla-teklif'
 import DeleteTeklif from '../actions/delete-teklif'
 import DownloadTeklif from '../actions/download-teklif'
-import { MdOutlineDeleteOutline } from 'react-icons/md'
-import IconButton from '../ui/icon-button'
 
-interface KaskoTableProps {
-    trafikData: {
+interface FerdikazaTableProps {
+    ferdikazaData: {
         id: string
+        basvuran: string
         kullaniciAdi: string | null
-        dogumTarihi: string
-        sahipturu: string
         tcKimlik: string | null
+        meslek: string | null
         sirketUnvani: string | null
         vergiNo: string | null
+        faaliyetKonusu: string | null
+        calisanSayisi: string | null
         pasaportNo: string | null
+        dogumTarihi: string
 
-        plakaNo: string
-        kullanimTarzi: string
-        marka: string
-        modelYili: string
-        ASBISno: string
+
+        teminatMiktari: string
+        ekTeminatlar: string[]
 
         police: string
         sigortaSirketi: string | null
@@ -45,20 +42,20 @@ const tableRowData = [
     'Onaylama',
     'İsimlendirme',
     'Kişisel Bilgiler',
-    'Araç Bilgileri',
+    'Teminat Bilgileri',
     'Poliçe',
     'İletişim',
     'Actions',
 ]
 
 
-export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
+export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaData }) => {
 
 
     return (
         <>
             {
-                trafikData
+                ferdikazaData
                     ?
                     <Table className='text-[14px]'>
                         <TableHeader>
@@ -72,7 +69,7 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                         </TableHeader>
                         <TableBody>
                             {
-                                trafikData?.map((product) => {
+                                ferdikazaData?.map((product) => {
 
                                     const kisiselBilgiler = [
                                         {
@@ -89,6 +86,11 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
 
                                         },
                                         {
+                                            label: 'Meslek',
+                                            value: product.meslek
+
+                                        },
+                                        {
                                             label: 'Şirket Ünvanı',
                                             value: product.sirketUnvani
 
@@ -96,6 +98,15 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                         {
                                             label: 'Vergi Numarası',
                                             value: product.vergiNo,
+                                        },
+                                        {
+                                            label: 'Faaliyet Konusu',
+                                            value: product.faaliyetKonusu
+
+                                        },
+                                        {
+                                            label: 'Çalışan Sayısı',
+                                            value: product.calisanSayisi
                                         },
                                         {
 
@@ -108,30 +119,20 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                             value: product.dogumTarihi,
                                         }
                                     ]
-                                    const aracBilgileri = [
+
+
+                                    const teminatBilgileri = [
                                         {
                                             label: 'Title',
-                                            value: 'Araç Bilgileri'
+                                            value: 'Teminat Bilgileri'
                                         },
                                         {
-                                            label: 'Plaka Numarası',
-                                            value: product.plakaNo
+                                            label: 'Teminat Miktarı',
+                                            value: product.teminatMiktari + ' ₺'
                                         },
                                         {
-                                            label: 'Kullanım Tarzı',
-                                            value: product.kullanimTarzi
-                                        },
-                                        {
-                                            label: 'Marka',
-                                            value: product.marka
-                                        },
-                                        {
-                                            label: 'Model Yılı',
-                                            value: product.modelYili
-                                        },
-                                        {
-                                            label: 'Ruhsat Belge Seri No',
-                                            value: product.ASBISno
+                                            label: 'Ek Teminatlar',
+                                            value: product.ekTeminatlar ? product.ekTeminatlar.join(', ') : ''
                                         },
                                     ]
                                     const iletisimBilgileri = [
@@ -181,8 +182,8 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                                 <OnaylaTeklif teklifId={product.id} productOnaylama={product.onaylama} />
                                             </TableCell>
                                             <TableCell>{product.id}</TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.sahipturu} /></TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={aracBilgileri} label={product.plakaNo} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.basvuran} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={teminatBilgileri} label={product.teminatMiktari + ' ₺'} /></TableCell>
                                             {product.police === 'var' ?
                                                 <TableCell > <TableDropdownMenu bilgiler={policeBilgileri} label='Var' /></TableCell>
                                                 :
@@ -190,10 +191,7 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                             }
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
-                                                <div className='flex items-center space-x-2'>
-                                                    <DeleteTeklif category='kasko' teklifId={product.id} />
-                                                    <DownloadTeklif />
-                                                </div>
+                                                <DeleteTeklif category={'ferdikaza'} teklifId={product.id} />
                                             </TableCell>
                                         </TableRow>
                                     )

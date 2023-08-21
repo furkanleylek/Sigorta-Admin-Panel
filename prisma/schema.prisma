@@ -46,3 +46,67 @@ model Trafik {
   onaylama  Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model Dask {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  sahipturu    String
+  kullaniciAdi String?
+  tcKimlik     String?
+  sirketUnvani String?
+  vergiNo      String?
+  pasaportNo   String?
+  dogumTarihi  String
+
+  binaInsaYili  String
+  yapitarzi     String
+  kullanimSekli String
+  brutalan      String
+  katSayisi     String
+  rizikoAdresi  String
+  // hasar ile ilgili pdf optional
+
+  police            String
+  sigortaSirketi    String?
+  policeNumarasi    String?
+  policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model FerdiKaza {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  basvuran       String
+  kullaniciAdi   String?
+  tcKimlik       String?
+  meslek         String?
+  sirketUnvani   String?
+  vergiNo        String?
+  faaliyetKonusu String?
+  calisanSayisi  String?
+  pasaportNo     String?
+  dogumTarihi    String
+
+  teminatMiktari String
+  ekTeminatlar   String[]
+
+  police            String
+  sigortaSirketi    String?
+  policeNumarasi    String?
+  policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
