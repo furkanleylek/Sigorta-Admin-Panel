@@ -1,9 +1,15 @@
+'use client'
 import React from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import TableDropdownMenu from '../ui/table/table-dropdown-menu'
 import { TiTick } from 'react-icons/ti'
 import OnaylaTeklif from './onayla-teklif'
+import DeleteTeklif from '../actions/delete-teklif'
+import DownloadTeklif from '../actions/download-teklif'
+import { MdOutlineDeleteOutline } from 'react-icons/md'
+import IconButton from '../ui/icon-button'
+
 interface KaskoTableProps {
     trafikData: {
         id: string
@@ -183,7 +189,12 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                                 <TableCell className='capitalize'> {product.police}</TableCell>
                                             }
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
-                                            <TableCell><TableDropdownMenu bilgiler={kisiselBilgiler} /></TableCell>
+                                            <TableCell>
+                                                <div className='flex items-center space-x-2'>
+                                                    <DeleteTeklif teklifId={product.id} />
+                                                    <DownloadTeklif />
+                                                </div>
+                                            </TableCell>
                                         </TableRow>
                                     )
                                 })

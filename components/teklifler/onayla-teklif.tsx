@@ -17,6 +17,8 @@ const OnaylaTeklif: React.FC<OnaylaTeklifProps> = ({ teklifId, productOnaylama }
 
     const handleOnayla = async () => {
         try {
+            console.log("onaylam teklifıd :", teklifId)
+
             const response = await fetch('/api/trafik', {
                 method: 'PUT',
                 headers: {

@@ -10,6 +10,8 @@ interface ContextType {
     setEmail: React.Dispatch<React.SetStateAction<string>>
     password: string
     setPassword: React.Dispatch<React.SetStateAction<string>>
+    openDeleteModal: boolean
+    setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 const Context = createContext<ContextType | undefined>(undefined)
 
@@ -17,13 +19,15 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
 
     const [loading, setLoading] = useState(false)
     const [closeModal, setCloseModal] = useState(false)
+    const [openDeleteModal, setOpenDeleteModal] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const data = {
         loading, setLoading,
         closeModal, setCloseModal,
         email, setEmail,
-        password, setPassword
+        password, setPassword,
+        openDeleteModal, setOpenDeleteModal
     }
 
     return (
