@@ -238,7 +238,7 @@ export const IsyeriTable: React.FC<IsyerıTableProps> = async ({ isyeriData }) =
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
                                                 <div className='flex items-center space-x-2'>
-                                                    <DeleteTeklif category='kasko' teklifId={product.id} />
+                                                    <DeleteTeklif category='isyeri' teklifId={product.id} />
                                                     <DownloadTeklif />
                                                 </div>
                                             </TableCell>

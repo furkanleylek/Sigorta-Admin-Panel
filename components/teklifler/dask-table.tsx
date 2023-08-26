@@ -196,7 +196,7 @@ export const DaskTable: React.FC<DaskTableProps> = async ({ daskData }) => {
                                             }
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
-                                                <DeleteTeklif category={'ferdikaza'} teklifId={product.id} />
+                                                <DeleteTeklif category='dask' teklifId={product.id} />
                                             </TableCell>
                                         </TableRow>
                                     )

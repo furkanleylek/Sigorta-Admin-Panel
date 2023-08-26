@@ -201,7 +201,7 @@ export const KonutTable: React.FC<KonutTableProps> = async ({ konutData }) => {
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
                                                 <div className='flex items-center space-x-2'>
-                                                    <DeleteTeklif category='kasko' teklifId={product.id} />
+                                                    <DeleteTeklif category='konut' teklifId={product.id} />
                                                     <DownloadTeklif />
                                                 </div>
                                             </TableCell>

@@ -191,7 +191,7 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                             }
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
-                                                <DeleteTeklif category={'ferdikaza'} teklifId={product.id} />
+                                                <DeleteTeklif category='ferdikaza' teklifId={product.id} />
                                             </TableCell>
                                         </TableRow>
                                     )
