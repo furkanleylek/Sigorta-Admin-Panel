@@ -23,7 +23,7 @@ const IsyeriPage = async () => {
         <div className="flex space-y-8 mt-8 flex-col">
             <div className='flex items-center justify-between w-full'>
                 <TitleH1>
-                    Trafik
+                    İş Yeri
                 </TitleH1>
             </div>
             <Separator />
