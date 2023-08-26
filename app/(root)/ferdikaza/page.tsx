@@ -6,8 +6,8 @@ import prismadb from '@/lib/prismadb'
 import { KaskoTable } from '@/components/teklifler/kasko-table';
 import { FerdikazaTable } from '@/components/teklifler/ferdikaza-table';
 export const metadata = {
-    title: 'Kasko',
-    description: 'Trafik description',
+    title: 'Ferdi Kaza',
+    description: 'Ferdi Kaza description',
 }
 export const dynamic = 'force-dynamic'
 

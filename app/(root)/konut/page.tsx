@@ -5,9 +5,11 @@ import TitleH1 from '@/components/ui/h1';
 import prismadb from '@/lib/prismadb'
 import { KonutTable } from '@/components/teklifler/konut-table';
 export const metadata = {
-    title: 'Trafik',
-    description: 'Trafik description',
+    title: 'Konut',
+    description: 'Konut description',
 }
+
+export const dynamic = 'force-dynamic'
 
 const KonutPage = async () => {
 

@@ -4,9 +4,11 @@ import TitleH1 from '@/components/ui/h1';
 import prismadb from '@/lib/prismadb'
 import { DaskTable } from '@/components/teklifler/dask-table';
 export const metadata = {
-    title: 'Trafik',
-    description: 'Trafik description',
+    title: 'Dask',
+    description: 'Dask description',
 }
+
+export const dynamic = 'force-dynamic'
 
 const DaskPage = async () => {
 

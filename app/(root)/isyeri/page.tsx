@@ -6,9 +6,11 @@ import prismadb from '@/lib/prismadb'
 import { TrafikTable } from '@/components/teklifler/trafik-table';
 import { IsyeriTable } from '@/components/teklifler/isyeri-table';
 export const metadata = {
-    title: 'Trafik',
-    description: 'Trafik description',
+    title: 'İş Yeri',
+    description: 'İş Yeri description',
 }
+
+export const dynamic = 'force-dynamic'
 
 const IsyeriPage = async () => {
 
