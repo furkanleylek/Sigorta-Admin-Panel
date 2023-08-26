@@ -10,7 +10,7 @@ export async function POST(
         const body = await req.json()
         const category = await prismadb.isyeri.create({
             data: {
-                sahipturu: body.sahipturu,
+                sahipturu: body.basvuran,
                 kullaniciAdi: body.kullaniciAdi,
                 tcKimlik: body.tcKimlik,
                 sirketUnvani: body.sirketUnvani,
