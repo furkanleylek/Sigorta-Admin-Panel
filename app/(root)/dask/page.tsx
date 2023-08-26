@@ -1,32 +1,32 @@
 import React from 'react'
-import AllTeklifler from '@/components/teklifler/all-teklifler';
 import { Separator } from '@/components/ui/separator';
 import TitleH1 from '@/components/ui/h1';
 import prismadb from '@/lib/prismadb'
-import { KaskoTable } from '@/components/teklifler/kasko-table';
+import { DaskTable } from '@/components/teklifler/dask-table';
 export const metadata = {
-    title: 'Kasko',
+    title: 'Trafik',
     description: 'Trafik description',
 }
-export const dynamic = 'force-dynamic'
 
-const KaskoPage = async () => {
+const DaskPage = async () => {
 
-    const kaskoData = await prismadb.kasko.findMany({
-        orderBy: {
-            createdAt: 'desc'
+    const daskData = await prismadb.dask.findMany(
+        {
+            orderBy: {
+                createdAt: "desc"
+            }
         }
-    })
+    )
     return (
         <div className="flex space-y-8 mt-8 flex-col">
             <div className='flex items-center justify-between w-full'>
                 <TitleH1>
-                    Kasko
+                    Trafik
                 </TitleH1>
             </div>
             <Separator />
-            <KaskoTable trafikData={kaskoData} />
+            <DaskTable daskData={daskData} />
         </div>
     );
 }
-export default KaskoPage
+export default DaskPage

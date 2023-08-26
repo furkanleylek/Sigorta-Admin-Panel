@@ -8,9 +8,9 @@ export async function POST(
     try {
         const origin = req.headers.get('origin')
         const body = await req.json()
-        const category = await prismadb.dask.create({
+        const category = await prismadb.isyeri.create({
             data: {
-                basvuran: body.basvuran,
+                sahipturu: body.sahipturu,
                 kullaniciAdi: body.kullaniciAdi,
                 tcKimlik: body.tcKimlik,
                 sirketUnvani: body.sirketUnvani,
@@ -18,12 +18,20 @@ export async function POST(
                 pasaportNo: body.pasaportNo,
                 dogumTarihi: body.dogumTarihi,
 
-                binaInsaYili: body.binaInsaYili,
-                yapitarzi: body.yapitarzi,
-                kullanimSekli: body.kullanimSekli,
-                brutalan: body.brutalan,
-                katSayisi: body.katSayisi,
+                isyeri: body.isyeri,
+                faaliyetKonusu: body.faaliyetKonusu,
+                calisanSayisi: body.calısanSayısı,
+                katsayisi: body.katsayisi,
+                binabedeli: body.binabedeli,
+                demisbasbedeli: body.demisbasbedeli,
+                emtiabedeli: body.emtiabedeli,
+                makinetesbedeli: body.makinetesbedeli,
+                cambedeli: body.cambedeli,
+                elektronikcihazbedeli: body.elektronikcihazbedeli,
+                kasamuhteviyatibedeli: body.kasamuhteviyatibedeli,
+                brutalan: body.brütalan,
                 rizikoAdresi: body.rizikoAdresi,
+                korumaOnlemleri: body.korumaOnlemleri,
                 hasar: body.hasar,
 
                 police: body.police,
@@ -59,7 +67,7 @@ export async function PUT(
     const body = await req.json()
 
     try {
-        const onay = await prismadb.dask.update({
+        const onay = await prismadb.trafik.update({
             where: { id: body.teklifId },
             data: { onaylama: body.onaylamaState ? false : true }
         })

@@ -8,22 +8,23 @@ export async function POST(
     try {
         const origin = req.headers.get('origin')
         const body = await req.json()
-        const category = await prismadb.dask.create({
+        const category = await prismadb.konut.create({
             data: {
-                basvuran: body.basvuran,
+                sahipturu: body.sahipturu,
                 kullaniciAdi: body.kullaniciAdi,
                 tcKimlik: body.tcKimlik,
-                sirketUnvani: body.sirketUnvani,
-                vergiNo: body.vergiNo,
                 pasaportNo: body.pasaportNo,
                 dogumTarihi: body.dogumTarihi,
 
-                binaInsaYili: body.binaInsaYili,
-                yapitarzi: body.yapitarzi,
-                kullanimSekli: body.kullanimSekli,
-                brutalan: body.brutalan,
-                katSayisi: body.katSayisi,
+                yapitarzi: body.isyeri,
+                ikametgah: body.faaliyetKonusu,
+                binabedeli: body.binabedeli,
+                cambedeli: body.demisbasbedeli,
+                esyabedeli: body.esyabedeli,
+                kiymetliesyabedeli: body.kiymetliesyabedeli,
+                brutalan: body.brütalan,
                 rizikoAdresi: body.rizikoAdresi,
+                korumaOnlemleri: body.korumaOnlemleri,
                 hasar: body.hasar,
 
                 police: body.police,
@@ -59,7 +60,7 @@ export async function PUT(
     const body = await req.json()
 
     try {
-        const onay = await prismadb.dask.update({
+        const onay = await prismadb.konut.update({
             where: { id: body.teklifId },
             data: { onaylama: body.onaylamaState ? false : true }
         })

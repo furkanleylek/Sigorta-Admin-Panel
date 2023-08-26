@@ -47,10 +47,43 @@ model Trafik {
   createdAt DateTime @default(now())
 }
 
-model Dask {
+model Kasko {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   sahipturu    String
+  kullaniciAdi String?
+  meslek       String?
+  tcKimlik     String?
+  sirketUnvani String?
+  vergiNo      String?
+  pasaportNo   String?
+  dogumTarihi  String
+
+  plakaNo             String
+  kullanimTarzi       String
+  marka               String
+  modelYili           String
+  ekAksesuarBilgileri String
+  ASBISno             String
+
+  police            String
+  sigortaSirketi    String?
+  policeNumarasi    String?
+  policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Dask {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  basvuran     String
   kullaniciAdi String?
   tcKimlik     String?
   sirketUnvani String?
@@ -65,6 +98,7 @@ model Dask {
   katSayisi     String
   rizikoAdresi  String
   // hasar ile ilgili pdf optional
+  hasar         String
 
   police            String
   sigortaSirketi    String?
@@ -101,6 +135,95 @@ model FerdiKaza {
   sigortaSirketi    String?
   policeNumarasi    String?
   policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Konut {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  sahipturu    String
+  kullaniciAdi String?
+  tcKimlik     String?
+  pasaportNo   String?
+  dogumTarihi  String
+
+  yapitarzi          String
+  ikametgah          String
+  binabedeli         String
+  cambedeli          String
+  esyabedeli         String
+  kiymetliesyabedeli String
+  brutalan           String
+  rizikoAdresi       String
+  korumaOnlemleri    String[]
+  hasar              String
+
+  police            String
+  sigortaSirketi    String?
+  policeNumarasi    String?
+  policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Isyeri {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  sahipturu    String
+  kullaniciAdi String?
+  tcKimlik     String?
+  sirketUnvani String?
+  vergiNo      String?
+  pasaportNo   String?
+  dogumTarihi  String
+
+  isyeri                String
+  faaliyetKonusu        String
+  calisanSayisi         String
+  katsayisi             String
+  binabedeli            String
+  demisbasbedeli        String
+  emtiabedeli           String
+  makinetesbedeli       String
+  cambedeli             String
+  elektronikcihazbedeli String
+  kasamuhteviyatibedeli String
+  brutalan              String
+  rizikoAdresi          String
+  korumaOnlemleri       String[]
+  hasar                 String
+
+  police            String
+  sigortaSirketi    String?
+  policeNumarasi    String?
+  policeBitisTarihi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Diger {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  kullaniciAdi String?
 
   adres           String?
   telefonNumarasi String

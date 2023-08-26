@@ -1,28 +1,42 @@
+'use client'
 import React from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import TableDropdownMenu from '../ui/table/table-dropdown-menu'
+import { TiTick } from 'react-icons/ti'
 import OnaylaTeklif from './onayla-teklif'
 import DeleteTeklif from '../actions/delete-teklif'
 import DownloadTeklif from '../actions/download-teklif'
+import { MdOutlineDeleteOutline } from 'react-icons/md'
+import IconButton from '../ui/icon-button'
 
-interface FerdikazaTableProps {
-    ferdikazaData: {
+interface IsyerıTableProps {
+    isyeriData: {
         id: string
-        basvuran: string
+        sahipturu: string
         kullaniciAdi: string | null
+        dogumTarihi: string
         tcKimlik: string | null
-        meslek: string | null
         sirketUnvani: string | null
         vergiNo: string | null
-        faaliyetKonusu: string | null
-        calisanSayisi: string | null
         pasaportNo: string | null
-        dogumTarihi: string
 
+        isyeri: string
+        faaliyetKonusu: string
+        calisanSayisi: string
+        katsayisi: string
+        binabedeli: string
+        demisbasbedeli: string
+        emtiabedeli: string
+        makinetesbedeli: string
+        cambedeli: string
+        elektronikcihazbedeli: string
+        kasamuhteviyatibedeli: string
+        brutalan: string
+        rizikoAdresi: string
+        korumaOnlemleri: string[]
+        hasar: string
 
-        teminatMiktari: string
-        ekTeminatlar: string[]
 
         police: string
         sigortaSirketi: string | null
@@ -42,20 +56,20 @@ const tableRowData = [
     'Onaylama',
     'İsimlendirme',
     'Kişisel Bilgiler',
-    'Teminat Bilgileri',
+    'Araç Bilgileri',
     'Poliçe',
     'İletişim',
     'Actions',
 ]
 
 
-export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaData }) => {
+export const IsyeriTable: React.FC<IsyerıTableProps> = async ({ isyeriData }) => {
 
 
     return (
         <>
             {
-                ferdikazaData
+                isyeriData
                     ?
                     <Table className='text-[14px]'>
                         <TableHeader>
@@ -69,7 +83,7 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                         </TableHeader>
                         <TableBody>
                             {
-                                ferdikazaData?.map((product) => {
+                                isyeriData?.map((product) => {
 
                                     const kisiselBilgiler = [
                                         {
@@ -86,11 +100,6 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
 
                                         },
                                         {
-                                            label: 'Meslek',
-                                            value: product.meslek
-
-                                        },
-                                        {
                                             label: 'Şirket Ünvanı',
                                             value: product.sirketUnvani
 
@@ -98,15 +107,6 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                         {
                                             label: 'Vergi Numarası',
                                             value: product.vergiNo,
-                                        },
-                                        {
-                                            label: 'Faaliyet Konusu',
-                                            value: product.faaliyetKonusu
-
-                                        },
-                                        {
-                                            label: 'Çalışan Sayısı',
-                                            value: product.calisanSayisi
                                         },
                                         {
 
@@ -119,21 +119,67 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                             value: product.dogumTarihi,
                                         }
                                     ]
-
-
-                                    const teminatBilgileri = [
+                                    const isyeriBilgileri = [
                                         {
                                             label: 'Title',
-                                            value: 'Teminat Bilgileri'
+                                            value: 'İş Yeri Bilgileri'
                                         },
                                         {
-                                            label: 'Teminat Miktarı',
-                                            value: product.teminatMiktari + ' ₺'
+                                            label: 'İş Yeri Durumu',
+                                            value: product.isyeri
                                         },
                                         {
-                                            label: 'Ek Teminatlar',
-                                            value: product.ekTeminatlar ? product.ekTeminatlar.join(', ') : ''
+                                            label: 'Faaliyet Konusu',
+                                            value: product.faaliyetKonusu
                                         },
+                                        {
+                                            label: 'Çalışan Sayısı',
+                                            value: product.calisanSayisi
+                                        },
+                                        {
+                                            label: 'Brüt Alan',
+                                            value: product.brutalan
+                                        },
+                                        {
+                                            label: 'Kat Sayısı',
+                                            value: product.katsayisi
+                                        },
+                                        {
+                                            label: 'Bina Bedeli',
+                                            value: product.binabedeli
+                                        },
+                                        {
+                                            label: 'Demirbaş Bedeli',
+                                            value: product.demisbasbedeli
+                                        },
+                                        {
+                                            label: 'Emtia Bedeli',
+                                            value: product.emtiabedeli
+                                        },
+                                        {
+                                            label: 'Makine Tes. Bedeli',
+                                            value: product.makinetesbedeli
+                                        },
+                                        {
+                                            label: 'Cam Bedeli',
+                                            value: product.cambedeli
+                                        },
+                                        {
+                                            label: 'Elektronik Cihaz Bedeli',
+                                            value: product.elektronikcihazbedeli
+                                        },
+                                        {
+                                            label: 'Kasa Muhteviyatı Bedeli',
+                                            value: product.kasamuhteviyatibedeli
+                                        },
+                                        {
+                                            label: 'Riziko Adresi UAVT Kodu',
+                                            value: product.rizikoAdresi
+                                        },
+                                        {
+                                            label: 'Koruma Önlemleri',
+                                            value: product.korumaOnlemleri ? product.korumaOnlemleri.join(', ') : ''
+                                        }
                                     ]
                                     const iletisimBilgileri = [
                                         {
@@ -182,8 +228,8 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                                 <OnaylaTeklif teklifId={product.id} productOnaylama={product.onaylama} />
                                             </TableCell>
                                             <TableCell>{product.kullaniciAdi}</TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.basvuran} /></TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={teminatBilgileri} label={product.teminatMiktari + ' ₺'} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.sahipturu} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={isyeriBilgileri} label={product.isyeri} /></TableCell>
                                             {product.police === 'var' ?
                                                 <TableCell > <TableDropdownMenu bilgiler={policeBilgileri} label='Var' /></TableCell>
                                                 :
@@ -191,7 +237,10 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                             }
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
-                                                <DeleteTeklif category={'ferdikaza'} teklifId={product.id} />
+                                                <div className='flex items-center space-x-2'>
+                                                    <DeleteTeklif category='kasko' teklifId={product.id} />
+                                                    <DownloadTeklif />
+                                                </div>
                                             </TableCell>
                                         </TableRow>
                                     )

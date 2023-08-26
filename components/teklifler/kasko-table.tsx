@@ -180,7 +180,7 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                             <TableCell>
                                                 <OnaylaTeklif teklifId={product.id} productOnaylama={product.onaylama} />
                                             </TableCell>
-                                            <TableCell>{product.id}</TableCell>
+                                            <TableCell>{product.kullaniciAdi}</TableCell>
                                             <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.sahipturu} /></TableCell>
                                             <TableCell ><TableDropdownMenu bilgiler={aracBilgileri} label={product.plakaNo} /></TableCell>
                                             {product.police === 'var' ?

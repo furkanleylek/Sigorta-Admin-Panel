@@ -5,24 +5,26 @@ import TableDropdownMenu from '../ui/table/table-dropdown-menu'
 import OnaylaTeklif from './onayla-teklif'
 import DeleteTeklif from '../actions/delete-teklif'
 import DownloadTeklif from '../actions/download-teklif'
+import { string } from 'zod'
 
-interface FerdikazaTableProps {
-    ferdikazaData: {
+interface DaskTableProps {
+    daskData: {
         id: string
         basvuran: string
         kullaniciAdi: string | null
         tcKimlik: string | null
-        meslek: string | null
         sirketUnvani: string | null
         vergiNo: string | null
-        faaliyetKonusu: string | null
-        calisanSayisi: string | null
         pasaportNo: string | null
         dogumTarihi: string
 
-
-        teminatMiktari: string
-        ekTeminatlar: string[]
+        binaInsaYili: string
+        yapitarzi: string
+        kullanimSekli: string
+        brutalan: string
+        katSayisi: string
+        rizikoAdresi: string
+        hasar: string
 
         police: string
         sigortaSirketi: string | null
@@ -49,13 +51,13 @@ const tableRowData = [
 ]
 
 
-export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaData }) => {
+export const DaskTable: React.FC<DaskTableProps> = async ({ daskData }) => {
 
 
     return (
         <>
             {
-                ferdikazaData
+                daskData
                     ?
                     <Table className='text-[14px]'>
                         <TableHeader>
@@ -69,7 +71,7 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                         </TableHeader>
                         <TableBody>
                             {
-                                ferdikazaData?.map((product) => {
+                                daskData?.map((product) => {
 
                                     const kisiselBilgiler = [
                                         {
@@ -85,11 +87,7 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                             value: product.tcKimlik
 
                                         },
-                                        {
-                                            label: 'Meslek',
-                                            value: product.meslek
 
-                                        },
                                         {
                                             label: 'Şirket Ünvanı',
                                             value: product.sirketUnvani
@@ -98,15 +96,6 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                         {
                                             label: 'Vergi Numarası',
                                             value: product.vergiNo,
-                                        },
-                                        {
-                                            label: 'Faaliyet Konusu',
-                                            value: product.faaliyetKonusu
-
-                                        },
-                                        {
-                                            label: 'Çalışan Sayısı',
-                                            value: product.calisanSayisi
                                         },
                                         {
 
@@ -121,19 +110,35 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                     ]
 
 
-                                    const teminatBilgileri = [
+                                    const binaBilgileri = [
                                         {
                                             label: 'Title',
-                                            value: 'Teminat Bilgileri'
+                                            value: 'Bina Bilgileri'
                                         },
                                         {
-                                            label: 'Teminat Miktarı',
-                                            value: product.teminatMiktari + ' ₺'
+                                            label: 'Bina İnşa Yılı',
+                                            value: product.binaInsaYili
                                         },
                                         {
-                                            label: 'Ek Teminatlar',
-                                            value: product.ekTeminatlar ? product.ekTeminatlar.join(', ') : ''
+                                            label: 'Yapı Tarzı',
+                                            value: product.yapitarzi
                                         },
+                                        {
+                                            label: 'Kullanım Şekli',
+                                            value: product.kullanimSekli
+                                        },
+                                        {
+                                            label: 'Brüt Alan',
+                                            value: product.brutalan
+                                        },
+                                        {
+                                            label: 'Kat Sayısı',
+                                            value: product.katSayisi,
+                                        },
+                                        {
+                                            label: 'Riziko Adresi',
+                                            value: product.rizikoAdresi
+                                        }
                                     ]
                                     const iletisimBilgileri = [
                                         {
@@ -183,7 +188,7 @@ export const FerdikazaTable: React.FC<FerdikazaTableProps> = async ({ ferdikazaD
                                             </TableCell>
                                             <TableCell>{product.kullaniciAdi}</TableCell>
                                             <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.basvuran} /></TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={teminatBilgileri} label={product.teminatMiktari + ' ₺'} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={binaBilgileri} label={product.yapitarzi} /></TableCell>
                                             {product.police === 'var' ?
                                                 <TableCell > <TableDropdownMenu bilgiler={policeBilgileri} label='Var' /></TableCell>
                                                 :
