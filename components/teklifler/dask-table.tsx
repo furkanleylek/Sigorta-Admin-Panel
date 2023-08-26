@@ -44,7 +44,7 @@ const tableRowData = [
     'Onaylama',
     'İsimlendirme',
     'Kişisel Bilgiler',
-    'Teminat Bilgileri',
+    'Bina Bilgileri',
     'Poliçe',
     'İletişim',
     'Actions',

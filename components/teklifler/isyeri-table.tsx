@@ -56,7 +56,7 @@ const tableRowData = [
     'Onaylama',
     'İsimlendirme',
     'Kişisel Bilgiler',
-    'Araç Bilgileri',
+    'İş Yeri Bilgileri',
     'Poliçe',
     'İletişim',
     'Actions',
