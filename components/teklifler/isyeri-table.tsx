@@ -13,7 +13,7 @@ import IconButton from '../ui/icon-button'
 interface IsyerıTableProps {
     isyeriData: {
         id: string
-        sahipturu: string
+        basvuran: string
         kullaniciAdi: string | null
         dogumTarihi: string
         tcKimlik: string | null
@@ -228,7 +228,7 @@ export const IsyeriTable: React.FC<IsyerıTableProps> = async ({ isyeriData }) =
                                                 <OnaylaTeklif teklifId={product.id} productOnaylama={product.onaylama} />
                                             </TableCell>
                                             <TableCell>{product.kullaniciAdi}</TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.sahipturu} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.basvuran} /></TableCell>
                                             <TableCell ><TableDropdownMenu bilgiler={isyeriBilgileri} label={product.isyeri} /></TableCell>
                                             {product.police === 'var' ?
                                                 <TableCell > <TableDropdownMenu bilgiler={policeBilgileri} label='Var' /></TableCell>

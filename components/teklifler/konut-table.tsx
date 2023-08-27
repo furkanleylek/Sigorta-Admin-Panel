@@ -13,7 +13,7 @@ import IconButton from '../ui/icon-button'
 interface KonutTableProps {
     konutData: {
         id: string
-        sahipturu: string
+        basvuran: string
         kullaniciAdi: string | null
         dogumTarihi: string
         tcKimlik: string | null
@@ -31,9 +31,7 @@ interface KonutTableProps {
         hasar: string
 
         police: string
-        sigortaSirketi: string | null
-        policeNumarasi: string | null
-        policeBitisTarihi: string | null
+        daskPoliceNo: string | null
 
         adres: string | null
         telefonNumarasi: string
@@ -172,16 +170,8 @@ export const KonutTable: React.FC<KonutTableProps> = async ({ konutData }) => {
                                             value: 'Poliçe Bilgileri'
                                         },
                                         {
-                                            label: 'Sigorta Şirketi',
-                                            value: product.sigortaSirketi
-                                        },
-                                        {
-                                            label: 'Poliçe Numarası',
-                                            value: product.policeNumarasi
-                                        },
-                                        {
-                                            label: 'Poliçe Bitiş Tarihi',
-                                            value: product.policeBitisTarihi
+                                            label: 'Dask Police Numarası',
+                                            value: product.daskPoliceNo
                                         },
                                     ]
 
@@ -191,7 +181,7 @@ export const KonutTable: React.FC<KonutTableProps> = async ({ konutData }) => {
                                                 <OnaylaTeklif teklifId={product.id} productOnaylama={product.onaylama} />
                                             </TableCell>
                                             <TableCell>{product.kullaniciAdi}</TableCell>
-                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.sahipturu} /></TableCell>
+                                            <TableCell ><TableDropdownMenu bilgiler={kisiselBilgiler} label={product.basvuran} /></TableCell>
                                             <TableCell ><TableDropdownMenu bilgiler={konutBilgileri} label={product.yapitarzi} /></TableCell>
                                             {product.police === 'var' ?
                                                 <TableCell > <TableDropdownMenu bilgiler={policeBilgileri} label='Var' /></TableCell>
