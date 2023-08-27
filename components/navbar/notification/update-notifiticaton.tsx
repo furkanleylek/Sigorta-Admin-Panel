@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
-
+import { useRouter } from 'next/navigation'
 interface UpdateNotificationProps {
     linkHref: string
 }
@@ -11,6 +11,7 @@ interface UpdateNotificationProps {
 
 const UpdateNotification: React.FC<UpdateNotificationProps> = ({ linkHref }) => {
 
+    const router = useRouter()
 
     const handleOnayla = async () => {
         console.log("sa")
@@ -24,6 +25,8 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({ linkHref }) => 
                 body: JSON.stringify({})
 
             });
+
+            router.refresh()
 
         } catch (error) {
             console.error('Bir hata oluştu:', error);

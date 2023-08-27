@@ -3,6 +3,7 @@ import { GiSandsOfTime } from 'react-icons/gi'
 import { TiTick } from 'react-icons/ti'
 import { Label } from '../ui/label'
 import { Separator } from '../ui/separator'
+import { PiCarDuotone } from 'react-icons/pi'
 interface SingleCardProps {
     label: string
     value: number

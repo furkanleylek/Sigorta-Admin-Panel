@@ -72,7 +72,11 @@ const NotificationSystem = async () => {
                             size={24}
                             className="cursor-pointer text-zinc-800 dark:text-zinc-200 hover:scale-[1.02]"
                         />
-                        <span className='absolute top-[-10px] right-[-1px] flex items-center justify-center text-[10px] text-white pl-[5px] pr-[6px] pt-[1px] font-semibold bg-red-500 rounded-full'>{toplamBildiri}</span>
+                        {
+                            toplamBildiri > 0 && (
+                                <span className='absolute top-[-10px] right-[-1px] flex items-center justify-center text-[10px] text-white pl-[5px] pr-[6px] pt-[1px] font-semibold bg-red-500 rounded-full'>{toplamBildiri}</span>
+                            )
+                        }
                     </div>
                 </PopoverTrigger>
                 <PopoverContent className='max-h-60 w-[240px] p-4 overflow-y-auto flex flex-col'>
@@ -93,7 +97,7 @@ const NotificationSystem = async () => {
                                             <span className='font-semibold'><PiCarDuotone size={20} /></span>
                                             <span className='border border-border h-4'></span>
                                             <div className='space-y-2'>
-                                                <p className='mb-1'>{e.kullaniciAdi}</p>
+                                                <p className='mb-1'>{e.kullaniciAdi || e.sirketUnvani}</p>
                                                 <UpdateNotification linkHref='/trafik' />
                                             </div>
                                         </div>
@@ -113,7 +117,7 @@ const NotificationSystem = async () => {
                                             <span className='font-semibold'><MdOutlineHealthAndSafety size={20} /></span>
                                             <span className='border border-border h-4'></span>
                                             <div className='space-y-2'>
-                                                <p className='mb-1'>{e.kullaniciAdi}</p>
+                                                <p className='mb-1'>{e.kullaniciAdi || e.sirketUnvani}</p>
                                                 <UpdateNotification linkHref='/kasko' />
                                             </div>
                                         </div>
@@ -153,7 +157,7 @@ const NotificationSystem = async () => {
                                             <span className='font-semibold'><BsShop size={20} /></span>
                                             <span className='border border-border h-4'></span>
                                             <div className='space-y-2'>
-                                                <p className='mb-1'>{e.kullaniciAdi}</p>
+                                                <p className='mb-1'>{e.kullaniciAdi || e.sirketUnvani}</p>
                                                 <UpdateNotification linkHref='/isyeri' />
                                             </div>
                                         </div>
@@ -173,7 +177,7 @@ const NotificationSystem = async () => {
                                             <span className='font-semibold'><FaGripfire size={20} /></span>
                                             <span className='border border-border h-4'></span>
                                             <div className='space-y-2'>
-                                                <p className='mb-1'>{e.kullaniciAdi}</p>
+                                                <p className='mb-1'>{e.kullaniciAdi || e.sirketUnvani}</p>
                                                 <UpdateNotification linkHref='/dask' />
                                             </div>
                                         </div>
@@ -193,7 +197,7 @@ const NotificationSystem = async () => {
                                             <span className='font-semibold'><LuHeartHandshake size={20} /></span>
                                             <span className='border border-border h-4'></span>
                                             <div className='space-y-2'>
-                                                <p className='mb-1'>{e.kullaniciAdi}</p>
+                                                <p className='mb-1'>{e.kullaniciAdi || e.sirketUnvani}</p>
                                                 <UpdateNotification linkHref='/ferdikaza' />
                                             </div>
                                         </div>
