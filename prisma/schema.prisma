@@ -148,7 +148,7 @@ model FerdiKaza {
 model Konut {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  sahipturu    String
+  basvuran     String
   kullaniciAdi String?
   tcKimlik     String?
   pasaportNo   String?
@@ -182,7 +182,7 @@ model Konut {
 model Isyeri {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  sahipturu    String
+  basvuran     String
   kullaniciAdi String?
   tcKimlik     String?
   sirketUnvani String?

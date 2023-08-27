@@ -57,7 +57,7 @@ export async function PUT(
     const body = await req.json()
 
     try {
-        const onay = await prismadb.trafik.update({
+        const onay = await prismadb.ferdiKaza.update({
             where: { id: body.teklifId },
             data: { onaylama: body.onaylamaState ? false : true }
         })

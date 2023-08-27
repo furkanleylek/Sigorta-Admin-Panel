@@ -10,7 +10,7 @@ export async function POST(
         const body = await req.json()
         const category = await prismadb.konut.create({
             data: {
-                sahipturu: body.sahipturu,
+                basvuran: body.basvuran,
                 kullaniciAdi: body.kullaniciAdi,
                 tcKimlik: body.tcKimlik,
                 pasaportNo: body.pasaportNo,

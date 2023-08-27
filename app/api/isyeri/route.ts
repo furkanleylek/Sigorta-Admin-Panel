@@ -10,7 +10,7 @@ export async function POST(
         const body = await req.json()
         const category = await prismadb.isyeri.create({
             data: {
-                sahipturu: body.basvuran,
+                basvuran: body.basvuran,
                 kullaniciAdi: body.kullaniciAdi,
                 tcKimlik: body.tcKimlik,
                 sirketUnvani: body.sirketUnvani,
@@ -67,7 +67,7 @@ export async function PUT(
     const body = await req.json()
 
     try {
-        const onay = await prismadb.trafik.update({
+        const onay = await prismadb.isyeri.update({
             where: { id: body.teklifId },
             data: { onaylama: body.onaylamaState ? false : true }
         })
