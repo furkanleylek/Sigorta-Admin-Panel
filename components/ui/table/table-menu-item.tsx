@@ -11,7 +11,7 @@ export const TableMenuContainerItem: React.FC<TableMenuItem> = ({ children }) =>
     return (
         <>
             <Separator />
-            <div className="flex items-center justify-between space-x-2">
+            <div className="flex items-center justify-between relative ">
                 {children}
             </div>
         </>
@@ -21,7 +21,7 @@ export const TableMenuContainerItem: React.FC<TableMenuItem> = ({ children }) =>
 
 export const TableMenuInsideItem: React.FC<TableMenuItem> = ({ children }) => {
     return (
-        <div className='flex items-center space-x-2'>
+        <div className='flex items-center space-x-2 '>
             {children}
         </div>
     );

@@ -11,12 +11,12 @@ interface SingleCardProps {
 
 const SingleCard: React.FC<SingleCardProps> = ({ label, value, onaylananTeklif }) => {
     return (
-        <div className={`border border-border p-8  rounded-xl flex flex-col gap-4 items-center`}>
-            <Label className='text-base'>{label}</Label>
+        <div className={`border border-border p-8  rounded-xl flex flex-col gap-4 items-center shadow-md`}>
+            <Label className='text-base text-center'>{label}</Label>
             <Separator />
             <div className='flex itesm-center gap-2'>
                 <div className='flex items-center gap-2'>
-                    <p className='font-semibold text-xl'>{value}</p>
+                    <p className='font-semibold text-xl '>{value}</p>
                     <GiSandsOfTime size={24} className="text-orange-500 dark:text-orange-300" />
                 </div>
                 <span className='border-2 border-border h-6 mx-2'></span>

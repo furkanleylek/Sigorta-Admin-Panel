@@ -12,12 +12,12 @@ interface GenelIstatistikCardProps {
 
 const GenelIstatistikCard: React.FC<GenelIstatistikCardProps> = ({ label, value }) => {
     return (
-        <div className={`border border-border p-8  rounded-xl flex flex-col gap-4 items-center`}>
-            <Label className='text-base'>{label}</Label>
+        <div className={`border border-border p-8  rounded-xl flex flex-col gap-4 items-center shadow-md`}>
+            <Label className='text-base text-center'>{label}</Label>
             <Separator />
             <div className='flex itesm-center gap-2'>
                 <div className='flex items-center gap-2'>
-                    <p className='font-semibold text-xl'>{value}</p>
+                    <p className='font-semibold text-xl '>{value}</p>
                     {
                         label === 'Toplam Müşteri' && (
                             <BsFillPersonFill size={24} className="text-orange-500 dark:text-orange-300" />

@@ -105,7 +105,7 @@ const AllCards = async () => {
         <div className='space-y-16'>
             <div className='space-y-6'>
                 <TitleH3>Sigorta Teklifleri</TitleH3>
-                <div className='grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center'>
+                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-center'>
                     <SingleCard label='Trafik Sigortası' value={trafikData.length} onaylananTeklif={trafikOnaylama.length} />
                     <SingleCard label='Kasko Sigortası' value={kaskoData.length} onaylananTeklif={kaskoOnaylama.length} />
                     <SingleCard label='Konut Sigortası' value={konutData.length} onaylananTeklif={konutOnaylama.length} />

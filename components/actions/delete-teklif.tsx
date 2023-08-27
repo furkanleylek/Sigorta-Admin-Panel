@@ -5,7 +5,6 @@ import { MdOutlineDeleteOutline } from 'react-icons/md'
 
 import IconButton from '../ui/icon-button'
 import { useDashboardContext } from '../context'
-import DeleteModal from '../modals/delete-modal'
 import { useToast } from "@/components/ui/use-toast"
 import { Button } from '../ui/button'
 
