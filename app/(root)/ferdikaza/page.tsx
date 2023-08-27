@@ -1,5 +1,4 @@
 import React from 'react'
-import AllTeklifler from '@/components/teklifler/all-teklifler';
 import { Separator } from '@/components/ui/separator';
 import TitleH1 from '@/components/ui/h1';
 import prismadb from '@/lib/prismadb'
