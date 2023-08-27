@@ -57,20 +57,32 @@ export async function PUT(
     res: Response
 ) {
     const body = await req.json()
-
+    const operationType = req.headers.get('x-operation');
+    console.log("operationType:", operationType)
     try {
-        const onay = await prismadb.dask.update({
-            where: { id: body.teklifId },
-            data: { onaylama: body.onaylamaState ? false : true }
-        })
-        return new NextResponse('Success', { status: 200 })
+        if (operationType === 'teklifOnaylama') {
+            const onay = await prismadb.dask.update({
+                where: { id: body.teklifId },
+                data: { onaylama: body.onaylamaState ? false : true }
+            })
+            return new NextResponse('Success', { status: 200 })
+        }
+        if (operationType === 'updateGuncel') {
+            await prismadb.dask.updateMany({
+                where: {
+                    guncel: false
+                },
+                data: {
+                    guncel: true
+                }
+            });
+            return new NextResponse('Success', { status: 200 })
+        }
 
     } catch (error) {
         console.log("ERROROROROR:", error)
     }
 }
-
-
 
 
 export async function OPTIONS(request: NextRequest) {

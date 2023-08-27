@@ -22,7 +22,6 @@ interface TableDropdownMenuProps {
 
 const TableDropdownMenu: React.FC<TableDropdownMenuProps> = ({ bilgiler, label }) => {
 
-    const [copySuccess, setCopySuccess] = useState(false)
     return (
         <Popover>
             <PopoverTrigger className='flex items-center'>
@@ -35,15 +34,13 @@ const TableDropdownMenu: React.FC<TableDropdownMenuProps> = ({ bilgiler, label }
                     bilgiler.map((item) => {
                         if (item.value && item.label !== 'Title') {
                             return (
-                                <>
-                                    <TableMenuContainerItem key={item.label}>
-                                        <TableMenuInsideItem >
-                                            <Label>{item.label} : </Label>
-                                            <TableMenuSpan>{item.value}</TableMenuSpan>
-                                        </TableMenuInsideItem>
-                                        <CopiedModal url={item.value} label={item.label} />
-                                    </TableMenuContainerItem>
-                                </>
+                                <TableMenuContainerItem key={item.label}>
+                                    <TableMenuInsideItem >
+                                        <Label>{item.label} : </Label>
+                                        <TableMenuSpan>{item.value}</TableMenuSpan>
+                                    </TableMenuInsideItem>
+                                    <CopiedModal url={item.value} label={item.label} />
+                                </TableMenuContainerItem>
                             )
                         }
                     })

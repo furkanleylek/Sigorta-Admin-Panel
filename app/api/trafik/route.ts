@@ -2,6 +2,26 @@ import { NextRequest, NextResponse } from "next/server"
 import prismadb from '@/lib/prismadb'
 
 export const dynamic = 'force-dynamic'
+
+
+export async function GET(
+    req: Request,
+) {
+    try {
+        const trafikData = await prismadb.trafik.findMany({
+            where: {
+                guncel: false
+            }
+        });
+        return NextResponse.json(trafikData)
+
+    } catch (error) {
+        console.log('[CATEGORİIES_GET]', error)
+        return new NextResponse('Interal Error', { status: 500 })
+    }
+}
+
+
 export async function POST(
     req: Request,
 ) {
@@ -49,19 +69,32 @@ export async function POST(
     }
 }
 
-
 export async function PUT(
     req: Request,
     res: Response
 ) {
     const body = await req.json()
-
+    const operationType = req.headers.get('x-operation');
+    console.log("operationType:", operationType)
     try {
-        const onay = await prismadb.trafik.update({
-            where: { id: body.teklifId },
-            data: { onaylama: body.onaylamaState ? false : true }
-        })
-        return new NextResponse('Success', { status: 200 })
+        if (operationType === 'teklifOnaylama') {
+            const onay = await prismadb.trafik.update({
+                where: { id: body.teklifId },
+                data: { onaylama: body.onaylamaState ? false : true }
+            })
+            return new NextResponse('Success', { status: 200 })
+        }
+        if (operationType === 'updateGuncel') {
+            await prismadb.trafik.updateMany({
+                where: {
+                    guncel: false
+                },
+                data: {
+                    guncel: true
+                }
+            });
+            return new NextResponse('Success', { status: 200 })
+        }
 
     } catch (error) {
         console.log("ERROROROROR:", error)

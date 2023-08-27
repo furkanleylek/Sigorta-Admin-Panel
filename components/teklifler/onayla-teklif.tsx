@@ -23,7 +23,8 @@ const OnaylaTeklif: React.FC<OnaylaTeklifProps> = ({ teklifId, productOnaylama }
             const response = await fetch(`/api${pathname}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Operation': 'teklifOnaylama'
                 },
                 body: JSON.stringify({ teklifId, onaylamaState })
             });

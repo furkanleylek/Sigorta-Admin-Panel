@@ -6,15 +6,19 @@ interface TableMenuItem {
     children: ReactNode;
 }
 
+interface TableMenuContainerItemProps {
+    children: ReactNode;
+}
 
-export const TableMenuContainerItem: React.FC<TableMenuItem> = ({ children }) => {
+
+export const TableMenuContainerItem: React.FC<TableMenuContainerItemProps> = ({ children }) => {
     return (
-        <>
+        <React.Fragment >
             <Separator />
             <div className="flex items-center justify-between relative ">
                 {children}
             </div>
-        </>
+        </React.Fragment>
 
     );
 };
