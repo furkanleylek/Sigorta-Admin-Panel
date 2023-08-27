@@ -10,9 +10,9 @@ const lora = Lora({ subsets: ['latin'], weight: '700' })
 
 const TitleH3: React.FC<TitleH3Props> = ({ children }) => {
     return (
-        <h1 className={classNames('font-bold text-2xl md:text-3xl border-l-4 border-border pl-4', lora.className)}>
+        <h3 className={classNames('font-bold text-2xl md:text-3xl border-l-4 border-border pl-4', lora.className)}>
             {children}
-        </h1>
+        </h3>
     );
 };
 

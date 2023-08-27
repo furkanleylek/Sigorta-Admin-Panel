@@ -1,6 +1,9 @@
 import React from 'react'
 import SingleCard from './single-card'
 import prismadb from '@/lib/prismadb'
+import TitleH1 from '../ui/h1';
+import TitleH3 from '../ui/h3';
+import GenelIstatistikCard from './genel-istatistik-card';
 
 const AllCards = async () => {
 
@@ -91,17 +94,38 @@ const AllCards = async () => {
             onaylama: true
         }
     });
+
+
+    // GENEL İSTATİSTİKLER
+
+    const toplamMusteri = trafikData.length + trafikOnaylama.length + kaskoData.length + kaskoOnaylama.length + konutData.length + konutOnaylama.length + isyeriData.length + isyeriOnaylama.length + daskData.length + daskOnaylama.length + ferdikazaData.length + ferdikazaOnaylama.length + digerData.length + digerOnaylama.length
+    const toplemYapılanİş = trafikOnaylama.length + kaskoOnaylama.length + konutOnaylama.length + isyeriOnaylama.length + daskOnaylama.length + ferdikazaOnaylama.length + digerOnaylama.length
+
     return (
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center'>
-            <SingleCard label='Trafik Sigortası' value={trafikData.length} onaylananTeklif={trafikOnaylama.length} />
-            <SingleCard label='Kasko Sigortası' value={kaskoData.length} onaylananTeklif={kaskoOnaylama.length} />
-            <SingleCard label='Konut Sigortası' value={konutData.length} onaylananTeklif={konutOnaylama.length} />
-            <SingleCard label='İş Yeri Sigortası' value={isyeriData.length} onaylananTeklif={isyeriOnaylama.length} />
-            <SingleCard label='Dask Sigortası' value={daskData.length} onaylananTeklif={daskOnaylama.length} />
-            <SingleCard label='Ferdi Kaza Sigortası' value={ferdikazaData.length} onaylananTeklif={ferdikazaOnaylama.length} />
-            <SingleCard label='Diğer Kategoriler' value={digerData.length} onaylananTeklif={digerOnaylama.length} />
-            <SingleCard label='Mesajlar' value={mesajlarData.length} onaylananTeklif={mesajlarOnaylama.length} />
+        <div className='space-y-16'>
+            <div className='space-y-6'>
+                <TitleH3>Sigorta Teklifleri</TitleH3>
+                <div className='grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center'>
+                    <SingleCard label='Trafik Sigortası' value={trafikData.length} onaylananTeklif={trafikOnaylama.length} />
+                    <SingleCard label='Kasko Sigortası' value={kaskoData.length} onaylananTeklif={kaskoOnaylama.length} />
+                    <SingleCard label='Konut Sigortası' value={konutData.length} onaylananTeklif={konutOnaylama.length} />
+                    <SingleCard label='İş Yeri Sigortası' value={isyeriData.length} onaylananTeklif={isyeriOnaylama.length} />
+                    <SingleCard label='Dask Sigortası' value={daskData.length} onaylananTeklif={daskOnaylama.length} />
+                    <SingleCard label='Ferdi Kaza Sigortası' value={ferdikazaData.length} onaylananTeklif={ferdikazaOnaylama.length} />
+                    <SingleCard label='Diğer Kategoriler' value={digerData.length} onaylananTeklif={digerOnaylama.length} />
+                    <SingleCard label='Mesajlar' value={mesajlarData.length} onaylananTeklif={mesajlarOnaylama.length} />
+                </div>
+            </div>
+            <div className='space-y-6'>
+                <TitleH3>Genel İstatistikler</TitleH3>
+                <div className='grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center'>
+                    <GenelIstatistikCard label='Toplam Müşteri' value={toplamMusteri} />
+                    <GenelIstatistikCard label='Toplam Yapılan Sigortalar' value={toplemYapılanİş} />
+                </div>
+            </div>
         </div>
+
+
     )
 }
 
