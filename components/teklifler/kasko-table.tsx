@@ -192,7 +192,6 @@ export const KaskoTable: React.FC<KaskoTableProps> = async ({ trafikData }) => {
                                             <TableCell>
                                                 <div className='flex items-center space-x-2'>
                                                     <DeleteTeklif category='kasko' teklifId={product.id} />
-                                                    <DownloadTeklif />
                                                 </div>
                                             </TableCell>
                                         </TableRow>

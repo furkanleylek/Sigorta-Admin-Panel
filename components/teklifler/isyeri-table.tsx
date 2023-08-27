@@ -239,7 +239,6 @@ export const IsyeriTable: React.FC<IsyerıTableProps> = async ({ isyeriData }) =
                                             <TableCell>
                                                 <div className='flex items-center space-x-2'>
                                                     <DeleteTeklif category='isyeri' teklifId={product.id} />
-                                                    <DownloadTeklif />
                                                 </div>
                                             </TableCell>
                                         </TableRow>

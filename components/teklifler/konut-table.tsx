@@ -192,7 +192,6 @@ export const KonutTable: React.FC<KonutTableProps> = async ({ konutData }) => {
                                             <TableCell>
                                                 <div className='flex items-center space-x-2'>
                                                     <DeleteTeklif category='konut' teklifId={product.id} />
-                                                    <DownloadTeklif />
                                                 </div>
                                             </TableCell>
                                         </TableRow>
