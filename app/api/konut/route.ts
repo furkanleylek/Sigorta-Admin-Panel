@@ -16,10 +16,10 @@ export async function POST(
                 pasaportNo: body.pasaportNo,
                 dogumTarihi: body.dogumTarihi,
 
-                yapitarzi: body.isyeri,
-                ikametgah: body.faaliyetKonusu,
+                yapitarzi: body.yapitarzi,
+                ikametgah: body.ikametgah,
                 binabedeli: body.binabedeli,
-                cambedeli: body.demisbasbedeli,
+                cambedeli: body.cambedeli,
                 esyabedeli: body.esyabedeli,
                 kiymetliesyabedeli: body.kiymetliesyabedeli,
                 brutalan: body.brütalan,
@@ -28,9 +28,7 @@ export async function POST(
                 hasar: body.hasar,
 
                 police: body.police,
-                sigortaSirketi: body.sigortaSirketi,
-                policeNumarasi: body.policeNumarasi,
-                policeBitisTarihi: body.policeBitisTarihi,
+                daskPoliceNo: body.daskPoliceNo,
 
                 adres: body.adres,
                 telefonNumarasi: body.telefonNumarasi,

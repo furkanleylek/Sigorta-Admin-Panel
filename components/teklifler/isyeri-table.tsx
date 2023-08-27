@@ -26,7 +26,7 @@ interface IsyerıTableProps {
         calisanSayisi: string
         katsayisi: string
         binabedeli: string
-        demisbasbedeli: string
+        demirbasbedeli: string
         emtiabedeli: string
         makinetesbedeli: string
         cambedeli: string
@@ -150,7 +150,7 @@ export const IsyeriTable: React.FC<IsyerıTableProps> = async ({ isyeriData }) =
                                         },
                                         {
                                             label: 'Demirbaş Bedeli',
-                                            value: product.demisbasbedeli
+                                            value: product.demirbasbedeli
                                         },
                                         {
                                             label: 'Emtia Bedeli',

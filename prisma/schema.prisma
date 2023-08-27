@@ -165,10 +165,8 @@ model Konut {
   korumaOnlemleri    String[]
   hasar              String
 
-  police            String
-  sigortaSirketi    String?
-  policeNumarasi    String?
-  policeBitisTarihi String?
+  police       String
+  daskPoliceNo String?
 
   adres           String?
   telefonNumarasi String
@@ -195,7 +193,7 @@ model Isyeri {
   calisanSayisi         String
   katsayisi             String
   binabedeli            String
-  demisbasbedeli        String
+  demirbasbedeli        String
   emtiabedeli           String
   makinetesbedeli       String
   cambedeli             String
