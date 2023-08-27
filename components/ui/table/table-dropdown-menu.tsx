@@ -24,14 +24,14 @@ const TableDropdownMenu: React.FC<TableDropdownMenuProps> = ({ bilgiler, label }
                 <span>{label}</span>
                 <BiDotsVerticalRounded size={16} className="mt-1 mx-2" />
             </PopoverTrigger>
-            <PopoverContent className='space-y-4'>
+            <PopoverContent className='space-y-4 max-h-[360px] overflow-y-auto'>
                 <h4 className="font-semibold leading-none">{bilgiler[0].value}</h4>
                 {
                     bilgiler.map((item) => {
                         if (item.value && item.label !== 'Title') {
                             return (
                                 <TableMenuContainerItem key={item.label}>
-                                    <TableMenuInsideItem>
+                                    <TableMenuInsideItem >
                                         <Label>{item.label} : </Label>
                                         <TableMenuSpan>{item.value}</TableMenuSpan>
                                     </TableMenuInsideItem>

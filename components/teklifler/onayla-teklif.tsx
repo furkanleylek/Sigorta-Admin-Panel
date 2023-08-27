@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { TiTick } from 'react-icons/ti'
-
+import { usePathname } from 'next/navigation'
 interface OnaylaTeklifProps {
     teklifId: string
     productOnaylama: boolean
@@ -10,7 +10,8 @@ interface OnaylaTeklifProps {
 const OnaylaTeklif: React.FC<OnaylaTeklifProps> = ({ teklifId, productOnaylama }) => {
 
     const [onaylamaState, setOnaylamaState] = useState(false)
-
+    const pathname = usePathname()
+    console.log("pathname:", pathname)
     useEffect(() => {
         setOnaylamaState(productOnaylama)
     }, [])
@@ -19,7 +20,7 @@ const OnaylaTeklif: React.FC<OnaylaTeklifProps> = ({ teklifId, productOnaylama }
         try {
             console.log("onaylam teklifıd :", teklifId)
 
-            const response = await fetch('/api/trafik', {
+            const response = await fetch(`/api${pathname}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

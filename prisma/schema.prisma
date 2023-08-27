@@ -231,3 +231,17 @@ model Diger {
   onaylama  Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model Mesajlar {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  kullaniciAdi String?
+
+  adres           String?
+  telefonNumarasi String
+  eposta          String?
+  mesaj           String?
+
+  onaylama  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
