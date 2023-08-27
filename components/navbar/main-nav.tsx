@@ -18,11 +18,6 @@ export function MainNav({
             active: pathname === `/`,
         },
         {
-            href: `/teklifler`,
-            label: 'Teklifler',
-            active: pathname === `/teklifler`,
-        },
-        {
             href: `/trafik`,
             label: 'Trafik',
             active: pathname === `/trafik`,
@@ -51,6 +46,11 @@ export function MainNav({
             href: `/ferdikaza`,
             label: 'Ferdi Kaza',
             active: pathname === `/ferdikaza`,
+        },
+        {
+            href: `/digerkategoriler`,
+            label: 'Diğer Kategoriler',
+            active: pathname === `/digerkategoriler`,
         },
         {
             href: `/mesajlar`,
