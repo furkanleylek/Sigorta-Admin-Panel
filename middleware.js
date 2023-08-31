@@ -35,7 +35,13 @@ export async function middleware(request) {
 export const config = {
     matcher: [
         '/',
-        '/teklifler',
+        '/trafik',
+        '/kasko',
+        '/konut',
+        '/isyeri',
+        '/dask',
+        '/ferdikaza',
+        '/digerkategoriler',
         '/mesajlar',
         '/login'
     ]
