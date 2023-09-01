@@ -227,8 +227,9 @@ model Isyeri {
 model Diger {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  kullaniciAdi String?
+  sigortaCategory String
 
+  kullaniciAdi    String?
   adres           String?
   telefonNumarasi String
   eposta          String?
