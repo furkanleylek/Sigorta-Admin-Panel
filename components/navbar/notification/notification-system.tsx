@@ -10,7 +10,7 @@ import { BsShop } from 'react-icons/bs'
 import { LuHeartHandshake } from 'react-icons/lu'
 import { FaGripfire } from 'react-icons/fa'
 import { MdOutlineHealthAndSafety } from 'react-icons/md'
-import { BiBuildingHouse } from 'react-icons/bi'
+import { BiBuildingHouse, BiMessageRoundedDetail } from 'react-icons/bi'
 import { PiCarDuotone } from 'react-icons/pi'
 import Link from 'next/link'
 import UpdateNotification from './update-notifiticaton'
@@ -59,8 +59,13 @@ const NotificationSystem = async () => {
             guncel: false
         }
     });
+    const mesajlarData = await prismadb.mesaj.findMany({
+        where: {
+            guncel: false
+        }
+    });
 
-    const toplamBildiri = trafikData.length + kaskoData.length + konutData.length + isyeriData.length + daskData.length + ferdikazaData.length + digerData.length
+    const toplamBildiri = trafikData.length + kaskoData.length + konutData.length + isyeriData.length + daskData.length + ferdikazaData.length + digerData.length + mesajlarData.length
 
 
     return (
@@ -199,6 +204,26 @@ const NotificationSystem = async () => {
                                             <div className='space-y-2'>
                                                 <p className='mb-1'>{e.kullaniciAdi || e.sirketUnvani}</p>
                                                 <UpdateNotification linkHref='/ferdikaza' />
+                                            </div>
+                                        </div>
+                                        <Separator className='my-2' />
+                                    </React.Fragment>
+
+                                )
+                            })
+                        )
+                    }
+                    {
+                        mesajlarData.length > 0 && (
+                            mesajlarData.map((e, index) => {
+                                return (
+                                    <React.Fragment key={e.id}>
+                                        <div className='flex space-x-2 text-xs p-1'>
+                                            <span className='font-semibold'><BiMessageRoundedDetail size={20} /></span>
+                                            <span className='border border-border h-4'></span>
+                                            <div className='space-y-2'>
+                                                <p className='mb-1'>{e.kullaniciAdi || e.telefonNumarasi}</p>
+                                                <UpdateNotification linkHref='/mesajlar' />
                                             </div>
                                         </div>
                                         <Separator className='my-2' />

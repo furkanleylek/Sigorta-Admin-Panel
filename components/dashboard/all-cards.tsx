@@ -84,12 +84,12 @@ const AllCards = async () => {
         }
     });
 
-    const mesajlarData = await prismadb.mesajlar.findMany({
+    const mesajlarData = await prismadb.mesaj.findMany({
         where: {
             onaylama: false
         }
     });
-    const mesajlarOnaylama = await prismadb.mesajlar.findMany({
+    const mesajlarOnaylama = await prismadb.mesaj.findMany({
         where: {
             onaylama: true
         }

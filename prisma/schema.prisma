@@ -239,7 +239,7 @@ model Diger {
   createdAt DateTime @default(now())
 }
 
-model Mesajlar {
+model Mesaj {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   kullaniciAdi String?
@@ -249,6 +249,7 @@ model Mesajlar {
   eposta          String?
   mesaj           String?
 
+  guncel    Boolean  @default(false)
   onaylama  Boolean  @default(false)
   createdAt DateTime @default(now())
 }

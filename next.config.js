@@ -51,7 +51,7 @@ const nextConfig = {
                 ]
             },
             {
-                source: '/api/mesajlar',
+                source: '/api/mesaj',
                 headers: [
                     {
                         key: 'Access-Control-Allow-Origin', value: '*'

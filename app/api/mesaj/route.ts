@@ -8,7 +8,7 @@ export async function POST(
     try {
         const origin = req.headers.get('origin')
         const body = await req.json()
-        const category = await prismadb.mesajlar.create({
+        const category = await prismadb.mesaj.create({
             data: {
                 kullaniciAdi: body.kullaniciAdi,
                 adres: body.adres,
@@ -30,6 +30,41 @@ export async function POST(
         return new NextResponse('Interal Error', { status: 500 })
     }
 }
+
+
+
+export async function PUT(
+    req: Request,
+    res: Response
+) {
+    const body = await req.json()
+    const operationType = req.headers.get('x-operation');
+    console.log("operationType:", operationType)
+    try {
+        if (operationType === 'teklifOnaylama') {
+            const onay = await prismadb.mesaj.update({
+                where: { id: body.teklifId },
+                data: { onaylama: body.onaylamaState ? false : true }
+            })
+            return new NextResponse('Success', { status: 200 })
+        }
+        if (operationType === 'updateGuncel') {
+            await prismadb.mesaj.updateMany({
+                where: {
+                    guncel: false
+                },
+                data: {
+                    guncel: true
+                }
+            });
+            return new NextResponse('Success', { status: 200 })
+        }
+
+    } catch (error) {
+        console.log("ERROROROROR:", error)
+    }
+}
+
 
 
 export async function OPTIONS(request: NextRequest) {
