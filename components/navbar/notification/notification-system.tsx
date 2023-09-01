@@ -10,7 +10,7 @@ import { BsShop } from 'react-icons/bs'
 import { LuHeartHandshake } from 'react-icons/lu'
 import { FaGripfire } from 'react-icons/fa'
 import { MdOutlineHealthAndSafety } from 'react-icons/md'
-import { BiBuildingHouse, BiMessageRoundedDetail } from 'react-icons/bi'
+import { BiBuildingHouse, BiMessageRoundedDetail, BiBulb } from 'react-icons/bi'
 import { PiCarDuotone } from 'react-icons/pi'
 import Link from 'next/link'
 import UpdateNotification from './update-notifiticaton'
@@ -233,7 +233,26 @@ const NotificationSystem = async () => {
                             })
                         )
                     }
+                    {
+                        digerData.length > 0 && (
+                            digerData.map((e, index) => {
+                                return (
+                                    <React.Fragment key={e.id}>
+                                        <div className='flex space-x-2 text-xs p-1'>
+                                            <span className='font-semibold'><BiBulb size={20} /></span>
+                                            <span className='border border-border h-4'></span>
+                                            <div className='space-y-2'>
+                                                <p className='mb-1'>{e.sigortaCategory} Sigorta</p>
+                                                <UpdateNotification linkHref='/digerkategoriler' />
+                                            </div>
+                                        </div>
+                                        <Separator className='my-2' />
+                                    </React.Fragment>
 
+                                )
+                            })
+                        )
+                    }
 
 
                     {
