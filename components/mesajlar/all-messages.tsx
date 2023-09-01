@@ -59,6 +59,9 @@ export const AllMessages: React.FC<MesajlarProps> = async ({ mesajlarData }) => 
                                             <TableCell>{product.telefonNumarasi}</TableCell>
                                             <TableCell>{product.adres}</TableCell>
                                             <TableCell>{product.mesaj}</TableCell>
+                                            <TableCell>
+                                                <DeleteTeklif category='mesaj' teklifId={product.id} />
+                                            </TableCell>
                                         </TableRow>
                                     )
                                 })
