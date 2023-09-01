@@ -25,12 +25,9 @@ interface DigerCategoriesTableProps {
 
 const tableRowData = [
     'Onaylama',
-    'İsimlendirme',
-    'Kişisel Bilgiler',
-    'Bina Bilgileri',
-    'Poliçe',
+    'Sigorta Kategori',
     'İletişim',
-    'Actions',
+    'Aksiyonlar'
 ]
 
 
@@ -85,11 +82,10 @@ export const DigerCategoriesTable: React.FC<DigerCategoriesTableProps> = async (
                                             <TableCell>
                                                 <OnaylaTeklif teklifId={product.id} productOnaylama={product.onaylama} />
                                             </TableCell>
-                                            <TableCell>{product.kullaniciAdi}</TableCell>
-
+                                            <TableCell>{product.sigortaCategory}</TableCell>
                                             <TableCell > <TableDropdownMenu bilgiler={iletisimBilgileri} label={product.telefonNumarasi} /></TableCell>
                                             <TableCell>
-                                                <DeleteTeklif category='dask' teklifId={product.id} />
+                                                <DeleteTeklif category='digerkategoriler' teklifId={product.id} />
                                             </TableCell>
                                         </TableRow>
                                     )

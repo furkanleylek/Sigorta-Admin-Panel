@@ -24,6 +24,7 @@ const tableRowData = [
     'Telefon Numarası',
     'Adres',
     'Mesaj',
+    'Aksiyonlar',
 ]
 
 
